@@ -1,4 +1,4 @@
-namespace UsingAxaj_CodeAffection_DublicateProject.Models
+namespace UsingAjax_CodeAffection_DublicateProject.Models
 {
     public class ErrorViewModel
     {

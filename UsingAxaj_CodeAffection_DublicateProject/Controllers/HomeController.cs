@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using UsingAxaj_CodeAffection_DublicateProject.Models;
 
-namespace UsingAxaj_CodeAffection_DublicateProject.Controllers
+namespace UsingAjax_CodeAffection_DublicateProject.Controllers
 {
     public class HomeController : Controller
     {

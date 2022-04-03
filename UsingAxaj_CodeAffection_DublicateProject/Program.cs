@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using UsingAjax_CodeAffection_DublicateProject.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<TransactionDBContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))); // Определили что мы используем именно Sql базу данных и усатновили строку подключения которая описана в файле appsetting.json
 
 var app = builder.Build();
 
