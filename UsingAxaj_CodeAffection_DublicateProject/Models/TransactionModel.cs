@@ -22,5 +22,6 @@ namespace UsingAjax_CodeAffection_DublicateProject.Models
 
         public int Amount { get; set; }
 
+        public DateTime Date { get; set; }
     }
 }

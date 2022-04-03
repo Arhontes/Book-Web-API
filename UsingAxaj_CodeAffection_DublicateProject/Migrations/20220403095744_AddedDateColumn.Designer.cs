@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsingAjax_CodeAffection_DublicateProject.Models;
 
@@ -11,9 +12,10 @@ using UsingAjax_CodeAffection_DublicateProject.Models;
 namespace UsingAjax_CodeAffection_DublicateProject.Migrations
 {
     [DbContext(typeof(TransactionDBContext))]
-    partial class TransactionDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220403095744_AddedDateColumn")]
+    partial class AddedDateColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
