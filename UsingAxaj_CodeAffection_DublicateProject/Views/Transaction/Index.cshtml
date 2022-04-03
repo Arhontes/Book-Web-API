@@ -6,9 +6,7 @@
 
 <h1 class="text-center"><i class="fas fa-comment-dollar text-success"></i>Transaction History</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -19,15 +17,15 @@
                 @Html.DisplayNameFor(model => model.BeneficaryName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BankName)
+                @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SWIFTCode)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Amount)
             </th>
-            <th></th>
+            <th>
+                <a asp-action="Create" class="btn btn-success text-white"><i class="fas fa-random"></i> New Transaction</a>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -40,11 +38,9 @@
                 @Html.DisplayFor(modelItem => item.BeneficaryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BankName)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SWIFTCode)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
