@@ -43,10 +43,24 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             return View(transactionModel);
         }*/
 
-        // GET: Transaction/Create
-        public IActionResult Create()
+        // GET: Transaction/AddOrEdit
+        // GET: Transaction/AddOrEdit/5
+        public async Task<IActionResult> AddOrEdit(int id = 0)
         {
-            return View();
+            if (id==0)
+            {
+                return View();
+            }
+            else
+            {
+                var transactionModel = await _context.Transactions.FindAsync(id);
+                if (transactionModel == null)
+                {
+                    return NotFound();
+                }
+                return View(transactionModel);
+            }
+            
         }
 
         // POST: Transaction/Create
@@ -54,9 +68,9 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionId,AccountNumber,BeneficaryName,BankName,SWIFTCode,Amount")] TransactionModel transactionModel)
+        public async Task<IActionResult> Create([Bind("TransactionId,AccountNumber,BeneficaryName,BankName,SWIFTCode,Amount")] TransactionModel transactionModel) //только указанные свойства привязваются к transactionModel, к не учасвтующим в привязке будут применяться значения по умолчанию
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // если запрос валиден то IsValid = true
             {
                 _context.Add(transactionModel);
                 await _context.SaveChangesAsync();
