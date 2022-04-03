@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label asp-for="AccountNumber" class="control-label"></label>
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-addon">
                         <div class="input-group-text">#</div>
                     </div>
                     <input asp-for="AccountNumber" class="form-control" />
@@ -48,8 +48,8 @@
                 <div class="col-md-6">
                     <div class="form-group">
                                     <label asp-for="Amount" class="control-label"></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-addon">
                                             <div class="input-group-text">
                                             <i class="fas fa-dollar-sign"></i>    
                                             </div>
@@ -65,7 +65,9 @@
             
             
             <div class="form-group">
+
                 <input type="submit" value="Save" class="btn btn-primary w-100" />
+                
             </div>
         </form>
     </div>
