@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using UsingAxaj_CodeAffection_DublicateProject.Models;
+using UsingAjax_CodeAffection_DublicateProject.Models;
 
 namespace UsingAjax_CodeAffection_DublicateProject.Controllers
 {
