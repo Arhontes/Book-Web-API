@@ -108,7 +108,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             {
                 if (id == 0)
                 {  
-                    transactionModel.Date = DateTime.Now;
+                    transactionModel.Date = DateTime.Now; 
                     _context.Add(transactionModel);
                     await _context.SaveChangesAsync();
                 }
@@ -138,7 +138,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", transactionModel) });
         }
 
-        // GET: Transaction/Delete/5
+       /* // GET: Transaction/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -154,7 +154,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             }
 
             return View(transactionModel);
-        }
+        }*/
 
         // POST: Transaction/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -164,7 +164,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             var transactionModel = await _context.Transactions.FindAsync(id);
             _context.Transactions.Remove(transactionModel);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Json(new {html = Helper.RenderRazorViewToString(this, "_ViewAll", _context.Transactions.ToList()) });
         }
 
         private bool TransactionModelExists(int id)
