@@ -63,7 +63,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             
         }
 
-        // POST: Transaction/Create
+        /*// POST: Transaction/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -77,9 +77,9 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(transactionModel);
-        }
+        }*/
 
-        // GET: Transaction/Edit/5
+        /*// GET: Transaction/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -93,7 +93,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
                 return NotFound();
             }
             return View(transactionModel);
-        }
+        }*/
 
         // POST: Transaction/AddOrEdit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -132,7 +132,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
                         }
                     }
                 }
-                return Json(new {isValid = true, html = Helper.RenderRazorViewToString(this,"Index",_context.Transactions.ToList()) });
+                return Json(new {isValid = true, html = Helper.RenderRazorViewToString(this,"_ViewAll",_context.Transactions.ToList()) });
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", transactionModel) });
         }
