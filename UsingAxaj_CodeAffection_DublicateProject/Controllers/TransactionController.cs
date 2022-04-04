@@ -107,7 +107,8 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             if (ModelState.IsValid)
             {
                 if (id == 0)
-                {
+                {  
+                    transactionModel.Date = DateTime.Now;
                     _context.Add(transactionModel);
                     await _context.SaveChangesAsync();
                 }

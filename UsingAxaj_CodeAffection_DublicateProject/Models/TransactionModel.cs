@@ -34,6 +34,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Models
         [Required(ErrorMessage = "This field is requered")]
         public int Amount { get; set; }
 
+        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
         public DateTime Date { get; set; }
     }
 }
