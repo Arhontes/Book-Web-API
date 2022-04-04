@@ -21,21 +21,14 @@ jQueryAjaxPost = form => {
             processData: false,
             success: function (response) {
                 if (response.isValid) {
-<<<<<<< HEAD
                     $("#view-all").html(response.html);
-=======
-                    $("#view-all").html(responce.html);
->>>>>>> cc7d309b6ebbc55b734b46580f3d4db390ef25c5
                     $("#form-modal .modal-body").html('');
                     $("#form-modal .modal-title").html('');
                     $("#form-modal").modal('hide');
                 }
                 else
-<<<<<<< HEAD
                     $("#form-modal .modal-body").html(response.html);
-=======
-                    $("#form-modal .modal-body").html(responce.html);
->>>>>>> cc7d309b6ebbc55b734b46580f3d4db390ef25c5
+
             },
             error: function (err) {
                 console.log(err)
