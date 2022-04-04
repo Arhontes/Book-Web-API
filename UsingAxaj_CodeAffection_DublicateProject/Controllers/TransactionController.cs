@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using UsingAjax_CodeAffection_DublicateProject.Models;
+using static UsingAjax_CodeAffection_DublicateProject.Helper;
 
 namespace UsingAjax_CodeAffection_DublicateProject.Controllers
 {
@@ -45,6 +46,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
 
         // GET: Transaction/AddOrEdit
         // GET: Transaction/AddOrEdit/5
+        [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit(int id = 0)
         {
             if (id==0)

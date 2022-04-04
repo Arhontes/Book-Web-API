@@ -1,4 +1,15 @@
-﻿showInPopup = (url, title) => {
+﻿
+$(function () {
+    $("#loaderbody").addClass('hide');
+
+    $(document).bind('ajaxStart', function () {
+        $("#loaderbody").removeClass('hide');
+    }).bind('ajaxStop', function () {
+        $("#loaderbody").addClass('hide');
+    });
+});
+
+showInPopup = (url, title) => {
     $.ajax({
         type: "GET",
         url: url,
@@ -25,7 +36,7 @@ jQueryAjaxPost = form => {
                     $("#form-modal .modal-body").html('');
                     $("#form-modal .modal-title").html('');
                     $("#form-modal").modal('hide');
-                    $.notify('submitted successfully', { globalPosition: 'top center', className='success'})
+                    $.notify('submitted successfully', { globalPosition: 'top center', className:'success'})
                 }
                 else
                     $("#form-modal .modal-body").html(response.html);
@@ -57,7 +68,7 @@ jQueryAjaxDelete = form => {
                 success: function (response) {
                    
                         $("#view-all").html(response.html);
-                    $.notify('delete successfully', { globalPosition: 'top center', className='success' })
+                    $.notify('delete successfully', { globalPosition: 'top center', className:'success' })
                 },
                 error: function (err) {
                     console.log(err)
