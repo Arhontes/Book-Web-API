@@ -49,7 +49,7 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
         {
             if (id==0)
             {
-                return View();
+                return View(new TransactionModel() );
             }
             else
             {
@@ -95,39 +95,46 @@ namespace UsingAjax_CodeAffection_DublicateProject.Controllers
             return View(transactionModel);
         }
 
-        // POST: Transaction/Edit/5
+        // POST: Transaction/AddOrEdit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TransactionId,AccountNumber,BeneficaryName,BankName,SWIFTCode,Amount")] TransactionModel transactionModel)
+        public async Task<IActionResult> AddOrEdit(int id, [Bind("TransactionId,AccountNumber,BeneficaryName,BankName,SWIFTCode,Amount,Date")] TransactionModel transactionModel)
         {
-            if (id != transactionModel.TransactionId)
-            {
-                return NotFound();
-            }
+            
 
             if (ModelState.IsValid)
             {
-                try
+                if (id == 0)
                 {
-                    _context.Update(transactionModel);
+                    _context.Add(transactionModel);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!TransactionModelExists(transactionModel.TransactionId))
+
+
+                    try
                     {
-                        return NotFound();
+                        _context.Update(transactionModel);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!TransactionModelExists(transactionModel.TransactionId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Json(new {isValid = true, html = Helper.RenderRazorViewToString(this,"Index",_context.Transactions.ToList()) });
             }
-            return View(transactionModel);
+            return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", transactionModel) });
         }
 
         // GET: Transaction/Delete/5
